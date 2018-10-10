@@ -17,16 +17,14 @@ public class Test {
 				seats[row][seat].getPrice();
 			}
 		}
+		System.out.println("How Many seats would you like to buy?");
+		System.out.println("Enter 1-" + seatsAvailable);
+		int seatsNumWant = scan.nextInt();
+		System.out.println("Enter Row Number! (1-3)");
+		int rowWanted = scan.nextInt();
+		System.out.println("Enter Seat Number! (1-4)");
+		int seatWanted = scan.nextInt();
 
-		for (int row = 0; row < seats.length; row++) {
-			for (int seat = 0; seat < seats.length; seat++) {
 
-				System.out.println("How Many seats would you like to buy?");
-				System.out.println("Enter 1-" + seatsAvailable);
-				int seatsWanted = scan.nextInt();
-
-			}
-
-		}
 	}
 }
