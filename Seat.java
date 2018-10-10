@@ -3,16 +3,15 @@ package movies;
 import java.util.Random;
 
 public class Seat {
-	
+	Random rand = new Random();
 	private int price;
 	private Boolean seatStatus;
-	Random rand = new Random();
-	
+
 	public Seat() {
 		super();
 		int min = 70;
 		int max = 90;
-		this.price = rand.nextInt(max-min) + 50;
+		this.price = rand.nextInt(max - min) + 50;
 		this.seatStatus = seatStatus;
 	}
 
@@ -21,7 +20,6 @@ public class Seat {
 	}
 
 	public void setPrice() {
-		price = rand.nextInt(90) + 50;
 		this.price = price;
 	}
 
@@ -37,10 +35,5 @@ public class Seat {
 		seatStatus = true;
 	}
 
-	public Seat(int price) {
-		super();
-		this.price = price;
-	}
-	
-	
+
 }
