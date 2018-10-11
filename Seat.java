@@ -24,12 +24,13 @@ public class Seat {
 		return seatStatus;
 	}
 
+	public void setSeatStatus(Boolean seatStatus) {
+		this.seatStatus = seatStatus;
+	}
+
 	public void changeSeatStatus() {
-		if (seatStatus = false)
-			seatStatus = true;
-		else {
-			seatStatus = false;
-		}
+		this.seatStatus = true;
+
 			
 	}
 

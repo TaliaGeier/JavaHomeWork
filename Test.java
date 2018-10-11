@@ -31,23 +31,25 @@ public class Test {
 		while (seatsNumWant > 0 && seatsNumWant < seatsAvailable) {
 
 			if (seats[rowWanted][colWanted].getSeatStatus() == false) {
+				seats[rowWanted][colWanted].setSeatStatus(true);
 
-				seats[rowWanted][colWanted].changeSeatStatus();
 				System.out.println("Ok Cool Seat - " + rowWanted + " " + colWanted + " is Yours!");
 				seatsAvailable--;
 				seatsNumWant--;
-				if (seatsNumWant>0) {
-					System.out.println("Enter Another Seat Row");
-					rowWanted = scan.nextInt();
-					System.out.println("Enter Seat Number! (1-4)");
-					colWanted = scan.nextInt();
-				}
-			} else {
-				System.out.println("ooo sorry this Seat is taken!");
-			}
-			
 
-			scan.close();
-		}
+			}else {
+				System.out.println("ooo sorry this Seat is taken!");
+				System.out.println("Enter Another Seat Row");
+				rowWanted = scan.nextInt();
+				System.out.println("Enter Seat Number! (1-4)");
+				colWanted = scan.nextInt();
+			}
+			System.out.println("Enter Another Seat Row");
+			rowWanted = scan.nextInt();
+			System.out.println("Enter Seat Number! (1-4)");
+			colWanted = scan.nextInt();
+			seatsNumWant--;
+			seatsAvailable--;
+		} 
 	}
 }
