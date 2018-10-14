@@ -1,15 +1,15 @@
 
 public class Student {
 	
-	private int grade;
-	private int age;
+	private double grade;
+	private double age;
 	
-	public static int sumOfGrades;
-	public static int sumOfAges;
-	public static int sumOfStudents;
+	public static double sumOfGrades;
+	public static double sumOfAges;
+	public static double sumOfStudents;
 	
 	
-	public Student(int grade, int age) {
+	public Student(double grade, double age) {
 		super();
 		this.grade = grade;
 		this.age = age;
@@ -20,11 +20,11 @@ public class Student {
 	
 	
 	public static double averageGrades() {
-		return Student.sumOfGrades/Student.sumOfStudents;
+		return (double)Student.sumOfGrades/Student.sumOfStudents;
 	}
 	
 	public static double averageAge() {
-		return Student.sumOfAges/Student.sumOfStudents;
+		return (double)Student.sumOfAges/Student.sumOfStudents;
 	}
 	
 	
