@@ -10,7 +10,7 @@ public class Plane implements IFly{
 	
 	@Override
 	public int Fly(int speed) {
-		System.out.println("Plane is Flying OMG@#!$" + "\n" + "THE SPEED IS " + speed);
+		System.out.println("Plane is Flying The Speed IS " + speed);
 		return 0;
 	}
 	
