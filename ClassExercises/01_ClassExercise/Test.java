@@ -4,7 +4,7 @@ public class Test {
 
 	public static IFly createIFly() {
 		
-		int a = (int)(Math.random() * (3) + 0);
+		int a = (int)(Math.random() * 3 + 0);
 		
 		if (a == 0) {
 			Bird s = new Bird(); 
@@ -33,9 +33,9 @@ public class Test {
 		
 		for (int i = 0; i < flyArr.length; i++) {
 			flyArr[i] = createIFly();
-			System.out.println("-------------Created " + i + " Object-----------------");
+			System.out.println("-------------Created " + (i+1) + " Object-----------------");
 			
-			flyArr[i].Fly(10);
+			flyArr[i].Fly((int)(Math.random() * 100 + 1));
 			
 			flyArr[i].land();
 			System.out.println();
