@@ -60,14 +60,22 @@ Task 4:
 -- (Hint: You could use a subquery based on a earlier query).
 
 SELECT
-	`rental_records`.`start_date`,
+	
+    `rental_records`.`start_date`,
+
     `rental_records`.`end_date`,
-	`vehicles`.`veh_reg_no`,
+
+    `vehicles`.`veh_reg_no`,
+
     `vehicles`.`brand`,
+
     `vehicles`.`desc`
+
 FROM
-	`rental_db`.`rental_records`,
+	
+    `rental_db`.`rental_records`,
+
     `rental_db`.`vehicles`
-WHERE
-`rental_db`.`rental_records`.`start_date` < '2012-01-10'
-&& `rental_db`.`rental_records`.`end_date` < '2012-01-10';
+
+WHERE NOT 
+	'2012-01-10' between start_date and end_date;
