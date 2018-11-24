@@ -1,0 +1,73 @@
+First Task:
+
+-- List all rental records (start date, end date) with vehicle's registration number,
+-- brand, and customer name, sorted by vehicle's categories followed by start date.
+
+    SELECT
+    `rental_records`.`start_date`,
+    `rental_records`.`end_date`,
+    `rental_records`.`veh_reg_no`,
+	`vehicles`.`brand`,
+    `customers`.`name`,
+    `vehicles`.`category`
+    FROM
+	rental_records,
+    customers,
+    vehicles
+	ORDER BY
+    vehicles.category asc,start_date asc;
+
+
+task 2:
+
+SELECT
+	`rental_db`.`customers`.`name`,
+    `rental_records`.`veh_reg_no`,
+    `rental_records`.`start_date`,
+    `rental_records`.`end_date`
+
+
+FROM
+	rental_db.customers,
+	rental_db.rental_records,
+    rental_db.vehicles
+
+WHERE  rental_db.rental_records.`start_date` <= '2012-01-10' && rental_db.rental_records.`end_date` >= '2012-01-10' ;
+
+Task 3:
+-- List the vehicles (registration number, brand and description) rented out
+ -- for the period from '2012-01-03' to '2012-01-18'.
+ -- (Hint: start_date is inside the range; or end_date is inside the range;
+ -- or start_date is before the range and end_date is beyond the range.)
+
+SELECT
+	`vehicles`.`veh_reg_no`,
+    `vehicles`.`brand`,
+    `vehicles`.`desc`
+FROM
+	`rental_db`.`vehicles`,
+	`rental_db`.`rental_records`,
+	`rental_db`.`customers`
+WHERE
+	`rental_db`.`rental_records`.`start_date`  >= '2012-01-03'
+    &&
+    `rental_db`.`rental_records`.`start_date`  <= '2012-01-18'
+
+Task 4:
+
+-- List the vehicles (registration number, brand and description)
+-- available for rental (not rented out) on '2012-01-10'
+-- (Hint: You could use a subquery based on a earlier query).
+
+SELECT
+	`rental_records`.`start_date`,
+    `rental_records`.`end_date`,
+	`vehicles`.`veh_reg_no`,
+    `vehicles`.`brand`,
+    `vehicles`.`desc`
+FROM
+	`rental_db`.`rental_records`,
+    `rental_db`.`vehicles`
+WHERE
+`rental_db`.`rental_records`.`start_date` < '2012-01-10'
+&& `rental_db`.`rental_records`.`end_date` < '2012-01-10';
