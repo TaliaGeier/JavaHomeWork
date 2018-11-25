@@ -20,6 +20,9 @@ First Task:
 
 task 2:
 
+-- List the vehicles rented out on '2012-01-10' (not available for rental), in columns of vehicle registration no, customer name, start date and end date.
+-- (Hint: the given date is in between the start_date and end_date.)
+
 SELECT
 	`rental_db`.`customers`.`name`,
     `rental_records`.`veh_reg_no`,
@@ -32,7 +35,8 @@ FROM
 	rental_db.rental_records,
     rental_db.vehicles
 
-WHERE  rental_db.rental_records.`start_date` <= '2012-01-10' && rental_db.rental_records.`end_date` >= '2012-01-10' ;
+WHERE
+	'2012-01-10' between start_date and end_date;
 
 Task 3:
 -- List the vehicles (registration number, brand and description) rented out
@@ -40,18 +44,16 @@ Task 3:
  -- (Hint: start_date is inside the range; or end_date is inside the range;
  -- or start_date is before the range and end_date is beyond the range.)
 
-SELECT
-	`vehicles`.`veh_reg_no`,
-    `vehicles`.`brand`,
-    `vehicles`.`desc`
-FROM
-	`rental_db`.`vehicles`,
-	`rental_db`.`rental_records`,
-	`rental_db`.`customers`
-WHERE
-	`rental_db`.`rental_records`.`start_date`  >= '2012-01-03'
-    &&
-    `rental_db`.`rental_records`.`start_date`  <= '2012-01-18'
+ SELECT
+ 	`vehicles`.`veh_reg_no`,
+     `vehicles`.`brand`,
+     `vehicles`.`desc`
+ FROM
+ 	`rental_db`.`vehicles`,
+ 	`rental_db`.`rental_records`,
+ 	`rental_db`.`customers`
+ WHERE
+ 	`rental_db`.`rental_records`.`start_date`  BETWEEN '2012-01-03' and '2012-01-18';
 
 Task 4:
 
@@ -60,7 +62,7 @@ Task 4:
 -- (Hint: You could use a subquery based on a earlier query).
 
 SELECT
-	
+
     `rental_records`.`start_date`,
 
     `rental_records`.`end_date`,
@@ -72,10 +74,10 @@ SELECT
     `vehicles`.`desc`
 
 FROM
-	
+
     `rental_db`.`rental_records`,
 
     `rental_db`.`vehicles`
 
-WHERE NOT 
+WHERE NOT
 	'2012-01-10' between start_date and end_date;
