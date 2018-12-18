@@ -5,15 +5,13 @@ import java.util.ArrayList;
 import exceptions.*;
 
 public class Customer extends Nepi {
-	
-	
 
 	// ----------------------ATTRIBUTES----------------------
-	
+
 	private String lastName;
 	ArrayList<Coupon> coupons = new ArrayList<>();
 	// ----------------------Get & Set----------------------
-	
+
 	public ArrayList<Coupon> getCoupons() {
 		return coupons;
 	}
@@ -22,25 +20,35 @@ public class Customer extends Nepi {
 		return lastName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setlastName(String lastName) throws ExNameLength, ExNotNull {
+
+		if (lastName == null) {
+			throw new ExNotNull();
+		}
+
+		if (lastName.length() >= 2) {
+
+			this.lastName = lastName;
+
+		} else {
+
+			throw new ExNameLength();
+		}
 	}
 
-	
-	
-	
 	// ----------------------Constructor----------------------
 
-	public Customer(String lastName, String password, String email, String firstName, int id)
+	public Customer(int id, String lastName, String firstName, String email, String password, ArrayList<Coupon> coupons)
 			throws ExIdValidation, ExNameLength, ExNotNull, ExEmail, ExPassword {
 		super(password, email, firstName, id);
-		setLastName(lastName);
-		
-		// TODO Auto-generated constructor stub
+		setlastName(lastName);
+		this.coupons = coupons;
 	}
 
-	
 	// ----------------------Functions----------------------
 
-
+	@Override
+	public String toString() {
+		return super.toString() + ", last name " + getLastName() + ", customer's coupons " + getCoupons();
+	}
 }

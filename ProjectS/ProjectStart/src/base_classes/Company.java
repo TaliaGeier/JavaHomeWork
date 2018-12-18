@@ -20,7 +20,10 @@ public class Company extends Nepi {
 
 	public Company(String password, String email, String name, int id, ArrayList<Coupon> coupons)
 			throws ExIdValidation, ExNameLength, ExNotNull, ExEmail, ExPassword {
+		
 		super(password, email, name, id);
+		
+		
 	}
 
 
@@ -29,10 +32,8 @@ public class Company extends Nepi {
 
 	// ----------------------Functions----------------------
 
-	
-	
 	@Override
 	public String toString() {
-		return "Company coupons=" + getCoupons();
+		return super.toString() + "Company coupons=" + getCoupons();
 	}
 }

@@ -14,7 +14,7 @@ public class Coupon {
 	private int companyId;
 	private Category category;
 	private String title;
-	private String desc;
+	private String description;
 	private Date start_date;
 	private Date end_date;
 	private int amount;
@@ -39,8 +39,8 @@ public class Coupon {
 		return title;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
 
 	public Date getStart_date() {
@@ -102,8 +102,12 @@ public class Coupon {
 		}
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescription(String description) throws ExNotNull {
+		if (description == null) {
+			throw new ExNotNull();
+		} else {
+			this.description = description;
+		}
 	}
 
 	public void setStart_date(Date start_date) {
@@ -137,14 +141,14 @@ public class Coupon {
 
 	// ----------------------Constructor----------------------
 
-	public Coupon(int id, int companyId, Category category, String title, String desc, Date start_date, Date end_date,
+	public Coupon(int id, int companyId, Category category, String title, String description, Date start_date, Date end_date,
 			int amount, double price, String img) throws ExIdValidation, ExCantBeZero, ExNotNull {
 		super();
 		setId(id);
 		setCompanyId(companyId);
 		setCategory(category);
 		setTitle(title);
-		setDesc(desc);
+		setDescription(description);
 		setStart_date(start_date);
 		setEnd_date(end_date);
 		setAmount(amount);
@@ -157,7 +161,7 @@ public class Coupon {
 	@Override
 	public String toString() {
 		return "Coupon id=" + id + ", companyId=" + companyId + ", category=" + category + ", title=" + title
-				+ ", desc=" + desc + ", start_date=" + start_date + ", end_date=" + end_date + ", amount=" + amount
+				+ ", description=" + description + ", start_date=" + start_date + ", end_date=" + end_date + ", amount=" + amount
 				+ ", price=" + price + ", img=" + img;
 	}
 
